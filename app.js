@@ -32,6 +32,8 @@ addForm.addEventListener('submit', e => {
 if(localStorage.length){
   for(var i=1; i< localStorage.length; i++ ){
     generateTodos(localStorage.key(i))
+    console.log(localStorage.key(i))
+    console.log(i)
   }
 }
 
@@ -48,7 +50,7 @@ list.addEventListener('click', (e)=> {
 
 const filterTodos = (term) => {
   Array.from(list.children)
-    .filter((todo) => !todo.textContent.includes(term) && !todo.textContent.toLocaleLowerCase().includes(term) )
+    .filter((todo) => !todo.textContent.includes(term) && !todo.textContent.toLocaleLowerCase().includes(term) && !todo.textContent.toLocaleUpperCase().includes(term))
     .forEach((todo) => todo.classList.add('filtered'))
 
   Array.from(list.children)
