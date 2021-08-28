@@ -18,24 +18,27 @@ addForm.addEventListener('submit', e => {
   e.preventDefault()
 
   const todo = addForm.add.value.trim()
-  localStorage.setItem(todo, todo)
+  
 
   if(todo.length){
     generateTodos(todo)
     addForm.reset()
+    localStorage.setItem(todo, todo)
   }
 
 })
 
-
+console.log(localStorage.length)
 //update localstoge
-if(localStorage.length){
-  for(var i=1; i< localStorage.length; i++ ){
-    generateTodos(localStorage.key(i))
-    console.log(localStorage.key(i))
-    console.log(i)
+  if(localStorage.length){
+    for(var i=0; i< localStorage.length; i++ ){
+      generateTodos(localStorage.key(i))
+        // console.log(localStorage.key(i))
+        // console.log(i)
+      
+    }
   }
-}
+
 
 
 //delete todos
